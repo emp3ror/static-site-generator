@@ -15,7 +15,8 @@ app.use(morgan('dev'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.set('views', __dirname + '/views');
+// app.set('views', __dirname + '/app/views');
+app.use("/styles",express.static(__dirname + "/app/views/styles"));
 
 app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());                                     // parse application/json
