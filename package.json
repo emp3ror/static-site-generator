@@ -1,0 +1,22 @@
+{
+  "name": "site-builder",
+  "version": "1.0.0",
+  "description": "SPA site builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "spa",
+    "site",
+    "builder"
+  ],
+  "author": "mjt emp3ror",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  }
+}
