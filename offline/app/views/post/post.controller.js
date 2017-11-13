@@ -17,7 +17,13 @@ router.get('/',function (req,res) {
 	var iso = d.toISOString();
 
 	if (typeof req.query.id !== 'undefined') {
-		data = list[req.query.id];
+		try {
+			data = require(config.data+req.query.id+".json");
+		} catch (err) {
+			req.query.id=null;
+			console.log(err);
+		}
+		
 	} else {
 		data = { 
 			date : iso,
@@ -32,9 +38,15 @@ router.get('/',function (req,res) {
 
 router.post('/',function (req,res) {
 	var list = require(config.list);
-	list[req.body.id] = req.body;
-	var cleanText = req.body.content.replace(/<\/?[^>]+(>|$)/g, "");
-	list[req.body.id].content = cleanText.substring(0,20);
+
+	var post_contents = JSON.stringify(req.body);
+	list[req.body.id] = {
+		title : req.body.title,
+		image : req.body.image,
+		summary : req.body.summary,
+		date : req.body.date,
+		tags : req.body.tags
+	}
 	console.log(list);
 
 	var list_stringify = JSON.stringify(list);
@@ -46,13 +58,13 @@ router.post('/',function (req,res) {
 		console.log("list has been saved");
 	})
 
-	fs.writeFile(config.data+req.body.id+".json",JSON.stringify(req.body),function (err) {
+	fs.writeFile(config.data+req.body.id+".json",post_contents,function (err) {
 		if (err) {
 			return console.log("err while creating list");
 		}
 		console.log("list has been saved");
 	})
 
-	res.render(__dirname+'/post',req.body)
+	res.render(__dirname+'/post',JSON.parse(post_contents))
 })
 module.exports = router;
