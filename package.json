@@ -21,23 +21,24 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.18.5",
+    "connect-modrewrite": "^0.10.2",
     "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
     "gulp-bytediff": "^1.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-inject": "^4.1.0",
     "gulp-ng-annotate": "^2.0.0",
     "gulp-ng-config": "^1.4.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-print": "^2.0.1",
     "gulp-remove-files": "^0.0.3",
     "gulp-rename": "^1.2.2",
+    "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^2.1.2",
     "gulp-uglifycss": "^1.0.8",
-    "gulp-angular-filesort": "^1.1.1",
-    "gulp-inject": "^4.1.0",
-    "gulp-print": "^2.0.1",
-    "gulp-strip-debug": "^1.1.0",
     "gulp-watch": "^4.3.9",
     "wiredep": "^4.0.0",
-    "wrench": "^1.5.9",
-    "browser-sync": "^2.18.5"
+    "wrench": "^1.5.9"
   }
 }
