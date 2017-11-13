@@ -3,7 +3,10 @@ app = express();
 var http = require('http').Server(app);
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
+var config = require('./config');
+// var list = config.list;
 
 var port     = process.env.PORT || 8080;
 
@@ -23,8 +26,17 @@ app.use(bodyParser.json());                                     // parse applica
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
 
+/*initialise the list file*/
+fs.writeFile(config.list,"{}", { flag: 'wx' }, function (err) {
+    if (err) {
+    	console.log(err)
+    };
+    console.log("It's saved!");
+    require('./app/routes.js')(app);
+});
+
 /*router*/
-require('./app/routes.js')(app);
+
 
 http.listen(port,function(){
   console.log('listening on *:'+port);
