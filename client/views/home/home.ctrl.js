@@ -19,7 +19,20 @@ angular.module('mjt')
 
 .controller('HomeCtrl', HomeCtrl);
 
-HomeCtrl.$inject = [];
-function HomeCtrl() {
+HomeCtrl.$inject = ['datafetchService'];
+function HomeCtrl(datafetchService) {
 	var vm = this;
+
+	var promise = datafetchService.getList();
+
+	promise.then(function (response) {
+		console.log(response.data);
+
+		vm.data = Object.keys(response.data).map(function(key) {
+			return response.data[key];
+		});
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
 }

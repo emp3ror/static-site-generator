@@ -1,1 +1,13 @@
-this is home
+<div class="container">
+	<div class="row">
+		<div class="" ng-repeat="obj in vm.data | orderBy: 'obj.date':true">
+			{{obj.id}}
+			<a ui-sref="app.post.param({param : obj.id})">
+				<h2>{{obj.title}}</h2>
+				<h6>{{obj.date | date}}</h6>
+				<h4>{{obj.content}}</h4>
+
+			</a>
+		</div>
+	</div>
+</div>
