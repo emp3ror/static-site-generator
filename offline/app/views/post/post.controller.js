@@ -12,10 +12,15 @@ router.get('/',function (req,res) {
 	// console.log(list);
 	var list = require(config.list);
 	var data;
+
+	var d = new Date();
+	var iso = d.toISOString();
+
 	if (typeof req.query.id !== 'undefined') {
 		data = list[req.query.id];
 	} else {
-		data = { date : Date.now(),
+		data = { 
+			date : iso,
 			id : uuidV1()
 		};
 	}
