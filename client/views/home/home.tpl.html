@@ -1,13 +1,58 @@
-<div class="container">
+<!-- <div class="container">
 	<div class="row">
 		<div class="" ng-repeat="obj in vm.data | orderBy: 'obj.date':true">
 			{{obj.id}}
 			<a ui-sref="app.post.param({param : obj.id})">
 				<h2>{{obj.title}}</h2>
 				<h6>{{obj.date | date}}</h6>
-				<h4>{{obj.content}}</h4>
+				<h4>{{obj.summary}}</h4>
 
 			</a>
 		</div>
 	</div>
-</div>
+</div> -->
+
+<!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>mjt.com.np</h1>
+                        <hr class="small">
+                        <span class="subheading">Welcome to MJT's blog</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            	<div ng-repeat="obj in vm.data | orderBy: 'obj.date':true">
+            		<div class="post-preview">
+            			<a ui-sref="app.post.param({param : obj.id})">
+            				<h2 class="post-title">
+            					{{obj.title}}
+            				</h2>
+            				<h3 class="post-subtitle">
+            					{{obj.summary}}
+            				</h3>
+            			</a>
+            			<p class="post-meta">{{obj.date | date}}</p>
+            		</div>
+            		<hr>
+            	</div>
+                
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>

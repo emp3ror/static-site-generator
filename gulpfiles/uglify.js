@@ -14,6 +14,6 @@ gulp.task('uglify', ['app'], function() {
 		.pipe(bytediff.stop())
 		.pipe(rename('app.min.js'))
 		.pipe(plumber.stop())
-		.pipe(stripDebug())
+		// .pipe(stripDebug())
 		.pipe(gulp.dest('dist/'));
 });

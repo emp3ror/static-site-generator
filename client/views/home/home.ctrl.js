@@ -29,8 +29,12 @@ function HomeCtrl(datafetchService) {
 		console.log(response.data);
 
 		vm.data = Object.keys(response.data).map(function(key) {
-			return response.data[key];
+			var d = response.data[key];
+			d.id = key;
+			return d;
 		});
+
+		console.log(vm.data);
 	})
 	.catch(function (error) {
 		console.log(error);
